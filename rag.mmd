@@ -1,0 +1,13 @@
+sequenceDiagram
+    User->>+App: Please answer my question.
+
+    App->>+VecGen: Please convert Input to a vector(Embedding).
+    VecGen->>-App: Here is your embedding.
+
+    App->>+VecDB: Please retrive, say, 3 documents that most closely match this embedding.
+    VecDB->>-App: Here are the documents you requested.
+
+    App->>+LLM: Please generate text based on the Augmented Input (orignal Input + these 3 documents).
+    LLM->>-App: Here is the generated text.
+
+    App->>-User: Here is the answer you requested.

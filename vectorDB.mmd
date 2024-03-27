@@ -1,0 +1,15 @@
+sequenceDiagram
+    rect rgba(0,0,255,0.1)
+    Scanner->>Documents: As this is the first time I'm seeing you I will get all documents.
+    Scanner->>VectorDB: Please convert these documents to embeddings and store them.
+    end
+    
+    rect rgba(0,255,0,0.1)
+    Scanner->>Documents: Scanning for new or changed documents.
+    Scanner->>VectorDB: Please index these documents.
+    end
+
+    rect rgba(255,0,0,0.1)
+    User->>+VectorDB: Please retrieve N documents that most closely match this embedding.
+    VectorDB->>-User: Here we go.
+    end
